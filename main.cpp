@@ -81,7 +81,7 @@ int main()
     int opc;
     do
     {
-        cout<<"CUArTO CAMBIO DE PRUEBA"<<endl;
+        
         opc = Menuprincipal();
         switch (opc)
         {

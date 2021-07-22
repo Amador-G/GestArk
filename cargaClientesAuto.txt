@@ -1,0 +1,110 @@
+CARGA CLIENTES
+----------------------------------------------
+1111
+Daniel
+Kloster
+31
+8
+1985
+dkloster@fakemail.com
+1150262155
+lujan
+100
+Malvinas Argentinas
+y
+2222
+Enrique
+Schmidt
+5
+12
+1973
+eschmidt@fakemail.com
+1160760057
+Husares
+101
+Malvinas Argentinas
+y
+3333
+Maximiliano
+Wenner
+12
+5
+1992
+mwenner@fakemail.com
+1157201720
+Pedro Cervino
+102
+Malvinas Argentinas
+y
+4444
+Angel
+Simon
+15
+3
+1978
+asimon@fakemail.com
+1190667677
+castelli
+103
+Gral Pacheco
+y
+5555
+Brian
+Lara
+6
+5
+1988
+blara@fakemail.com
+1146479094
+lavalle
+104
+Gral Pacheco
+y
+6666
+Javier
+Vastag
+18
+3
+1976
+jvastag@fakemail.com
+1132381988
+vivaldi
+105
+Gral Pacheco
+y
+7777
+Matias
+Dirube
+22
+1
+1982
+mdirube@fakemail.com
+1140031636
+Peru
+106
+Gral Pacheco
+y
+8888
+Tamara
+Herrera
+31
+12
+1998
+therrera@fakemail.com
+1153908799
+chile
+107
+Don Torcuato
+y
+9999
+Ines
+Casanovas
+20
+9
+1981
+icasanovas@fakemail.com
+1190332925
+chile
+108
+Don Torcuato
+n

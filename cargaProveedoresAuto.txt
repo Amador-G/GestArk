@@ -1,0 +1,37 @@
+CARGA PROVEEDORES
+---------------------------------------
+AMD
+alsina
+200
+san isidro
+AMD@fakemail.com
+1112345678
+y
+NVIDIA
+garibaldi
+201
+san fernando
+NVIDIA@fakemail.com
+1123456789
+y
+NETMAK
+pampa
+202
+virreyes
+NETMAK@fakemail.com
+1134567891
+y
+TP-LINK
+san jose
+203
+Haedo
+TP-LINK@fakemail.com
+1145678912
+y
+LG
+don bosco
+204
+florida
+LG@fakemail.com
+1156789123
+n

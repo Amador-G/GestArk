@@ -81,7 +81,7 @@ int main()
     int opc;
     do
     {
-        
+        cout<<"EDITADO DESDE GITHUB"<<endl;
         opc = Menuprincipal();
         switch (opc)
         {

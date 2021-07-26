@@ -81,7 +81,8 @@ int main()
     int opc;
     do
     {
-        cout<<"EDITADO DESDE GITHUB"<<endl;
+        cout<<"commit desde visual code"<<endl;
+        system("pause");
         opc = Menuprincipal();
         switch (opc)
         {

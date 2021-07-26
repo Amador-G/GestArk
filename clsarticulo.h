@@ -24,13 +24,12 @@ public:
     void setID(int c){ID=c;}
     void setDescripcion(char *d){strcpy(Descripcion,d);}
     void setPu(float p){if(p>0){Pu=p;}
-    else{
-        while(p<=0){
+                        else{
+                            while(p<=0){
             cout<<"El PRECIO DEBE SER MAYOR A CERO"<<endl;
             cout<<"INGRESE PRECIO UNITARIO DEL ARTICULO: ";
             cin>>p;}
-            Pu=p;
-        }
+            Pu=p;}
     }
 
     void setStock(int s){VerificarStock(s);}
@@ -51,87 +50,102 @@ public:
     bool grabarEnDisco();
     bool modificarEnDisco(int pos);
     void VerificarStock (int);
-    bool iDAutomatico();
 
 };
+
+void Articulo::VerificarStock (int s){
+    while (s < 1 or s > 99999){
+        cout << "Stock invalido, ingrese Stock: "<<endl;
+        cin >> s;
+    }
+
+    Stock=s;
+    cout << "STOCK INGRESADO: " << Stock << endl;
+}
 
 void Articulo::cargar(){
     int posProv=0, s;
     Proveedor nombreProveedor;
-    cout<<"INGRESE DESCRIPCION DEL ARTICULO: ";
-    cargarCadena(Descripcion,24);
-    cout<<"INGRESE PRECIO UNITARIO DEL ARTICULO: ";
-    cin>>Pu;
-    while(Pu<=0){
-        cout<<"El PRECIO DEBE SER MAYOR A CERO"<<endl;
+        cout<<"INGRESE DESCRIPCION DEL ARTICULO: ";
+        cargarCadena(Descripcion,24);
         cout<<"INGRESE PRECIO UNITARIO DEL ARTICULO: ";
         cin>>Pu;
-    }
-    BorrarArea(1,3);
-    rlutil::locate(1,3);
-    cout << "EL PRECIO UNITARIO INGRESADO FUE: " << Pu;
-    rlutil::locate(1,4);
-    cout<<"INGRESE EL STOCK DEL ARTICULO: "; cin >> s;
-    VerificarStock(s);
-    rlutil::locate(1,25);
-    cout << "PROVEEDORES DISPONIBLES: ";
-    listarProveedorPorDefecto(26);
-    rlutil::locate(1,5);
-    cout<<"INGRESE EL ID DEL PROVEEDOR DEL ARTICULO: ";
-    rlutil::locate(1,6);
-    cin>>idProveedor;
-    posProv=buscarProveedor(idProveedor);
-    while (posProv < 0 ){
-        cout << "ID NO ENCONTRADO" << endl;
-        cout << "INGRESE UN ID VALIDO: ";
-        cin >> idProveedor;
+        while(Pu<=0){
+            cout<<"El PRECIO DEBE SER MAYOR A CERO"<<endl;
+            cout<<"INGRESE PRECIO UNITARIO DEL ARTICULO: ";
+            cin>>Pu;
+        }
+        BorrarArea(1,3);
+        rlutil::locate(1,3);
+        cout << "EL PRECIO UNITARIO INGRESADO FUE: " << Pu;
+
+        rlutil::locate(1,4);
+        cout<<"INGRESE EL STOCK DEL ARTICULO: "; cin >> s;
+        VerificarStock(s);
+
+        rlutil::locate(1,25);
+        cout << "PROVEEDORES DISPONIBLES: ";
+        listarProveedorPorDefecto(26);
+
+        rlutil::locate(1,5);
+        cout<<"INGRESE EL ID DEL PROVEEDOR DEL ARTICULO: ";
+        rlutil::locate(1,6);
+        cin>>idProveedor;
         posProv=buscarProveedor(idProveedor);
-    }
-    nombreProveedor.leerDeDisco(posProv);
-    BorrarArea(1,5);
-    rlutil::locate(1,5);
-    cout<<"EL PROVEEDOR INGRESADO FUE: "<<nombreProveedor.getNombreProv();
-    Estado=true;
-    cout<<endl << "------------------------"<< endl;
+        while (posProv < 0 ){
+            cout << "ID NO ENCONTRADO" << endl;
+            cout << "INGRESE UN ID VALIDO: ";
+            cin >> idProveedor;
+            posProv=buscarProveedor(idProveedor);
+        }
+
+        nombreProveedor.leerDeDisco(posProv);
+        BorrarArea(1,5);
+        rlutil::locate(1,5);
+
+
+        cout<<"EL PROVEEDOR INGRESADO FUE: "<<nombreProveedor.getNombreProv();
+        Estado=true;
+        cout<<endl << "------------------------"<< endl;
 }
 
 void Articulo::mostrar(int y){
-    Proveedor nombreProveedor;
-    int posProv;
-    posProv=buscarProveedor(idProveedor);
-    nombreProveedor.leerDeDisco(posProv);
-    y+=2;
-    gotoxy(4,y);
-    cout<<ID<<"\t";
-    gotoxy(13,y);
-    cout<<Descripcion<<"\t";
-    gotoxy(33,y);
-    cout<<"$ "<<Pu<<"\t";
-    gotoxy(51,y);
-    cout<<Stock<<"\t";
-    gotoxy(62,y);
-    if(Estado==true){cout<<"DISPONIBLE"<<endl;}
-    else{cout<<"NO DISPONIBLE"<<endl;}
-    gotoxy(79,y);
-    cout<<nombreProveedor.getNombreProv();
+        Proveedor nombreProveedor;
+        int posProv;
+        posProv=buscarProveedor(idProveedor);
+        nombreProveedor.leerDeDisco(posProv);
+        y+=2;
+        gotoxy(4,y);
+        cout<<ID<<"\t";
+        gotoxy(13,y);
+        cout<<Descripcion<<"\t";
+        gotoxy(33,y);
+        cout<<"$ "<<Pu<<"\t";
+        gotoxy(51,y);
+        cout<<Stock<<"\t";
+        gotoxy(62,y);
+        if(Estado==true){cout<<"DISPONIBLE"<<endl;}
+        else{cout<<"NO DISPONIBLE"<<endl;}
+        gotoxy(79,y);
+        cout<<nombreProveedor.getNombreProv();
 }
 
 void Articulo::mostrar(){
-    Proveedor nombreProveedor;
-    int posProv;
-    posProv=buscarProveedor(idProveedor);
-    nombreProveedor.leerDeDisco(posProv);
+        Proveedor nombreProveedor;
+        int posProv;
+        posProv=buscarProveedor(idProveedor);
+        nombreProveedor.leerDeDisco(posProv);
 
-    cout<<"------------------------"<<endl;
-    cout<<"CODIGO DE ARTICULO: "<<ID<<endl;
-    cout<<"DESCRIPCION: "<<Descripcion<<endl;
-    cout<<"PRECIO UNITARIO: $"<<Pu<<endl;
-    cout<<"STOCK: "<<Stock<<endl;
-    cout<<"PROVEEDOR: "<<nombreProveedor.getNombreProv()<<endl;
-    cout<<"ESTADO: ";
-    if(Estado==true){cout<<"DISPONIBLE"<<endl;}
-    else{cout<<"NO DISPONIBLE"<<endl;}
-    cout<<"------------------------"<<endl;
+        cout<<"------------------------"<<endl;
+        cout<<"CODIGO DE ARTICULO: "<<ID<<endl;
+        cout<<"DESCRIPCION: "<<Descripcion<<endl;
+        cout<<"PRECIO UNITARIO: $"<<Pu<<endl;
+        cout<<"STOCK: "<<Stock<<endl;
+        cout<<"PROVEEDOR: "<<nombreProveedor.getNombreProv()<<endl;
+        cout<<"ESTADO: ";
+        if(Estado==true){cout<<"DISPONIBLE"<<endl;}
+        else{cout<<"NO DISPONIBLE"<<endl;}
+        cout<<"------------------------"<<endl;
 }
 
 bool Articulo::leerDeDisco(int pos){
@@ -162,27 +176,6 @@ bool Articulo::modificarEnDisco(int pos){
     bool escribio=fwrite(this,sizeof (Articulo),1,pArticulo);
     fclose(pArticulo);
     return escribio;
-}
-
-void Articulo::VerificarStock (int s){
-    while (s < 1 or s > 99999){
-        cout << "Stock invalido, ingrese Stock: "<<endl;
-        cin >> s;
-    }
-
-    Stock=s;
-    cout << "STOCK INGRESADO: " << Stock << endl;
-}
-
-bool Articulo::iDAutomatico(){
-    FILE *pArchivo;
-    pArchivo=fopen(ARCHIVOARTICULO,"rb");
-    if(pArchivo==NULL){return false;}
-    fseek(pArchivo,-sizeof (Articulo),2);
-    fread(this, sizeof (Articulo),1,pArchivo);
-    ID+=1;
-    fclose(pArchivo);
-    return true;
 }
 ///-------------------------------------------------------///
 #endif // CLSARTICULO_H_INCLUDED

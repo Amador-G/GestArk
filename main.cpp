@@ -81,7 +81,6 @@ int main()
     int opc;
     do
     {
-        
         system("pause");
         opc = Menuprincipal();
         switch (opc)

@@ -26,7 +26,7 @@ public:
     void setPu(float p){if(p>0){Pu=p;}
                         else{
                             while(p<=0){
-            cout<<"El PRECIO DEBE SER MAYOR A CERO"<<endl;
+            cout<<"El PRECIO DEBE SER MAYOR A CERO prueba git"<<endl;
             cout<<"INGRESE PRECIO UNITARIO DEL ARTICULO: ";
             cin>>p;}
             Pu=p;}

@@ -81,7 +81,7 @@ int main()
     int opc;
     do
     {
-        cout<<"commit desde visual code"<<endl;
+        
         system("pause");
         opc = Menuprincipal();
         switch (opc)

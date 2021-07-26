@@ -60,7 +60,7 @@ void Articulo::VerificarStock (int s){
     }
 
     Stock=s;
-    cout << "STOCK INGRESADO,MODIFICACION DESDE RAMA: " << Stock << endl;
+    cout << "STOCK INGRESADO: " << Stock << endl;
 }
 
 void Articulo::cargar(){

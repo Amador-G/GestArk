@@ -9,6 +9,7 @@ class Cliente: public Persona{
         Direccion domicilio;
         bool Estado;
         int IDcliente;
+        int iddos;
 
     public:
         ///constructor
